@@ -11,14 +11,10 @@ import com.mattia.robotpuzzle.serviceInterface.RobotController;
 import com.mattia.robotpuzzle.usecases.RobotManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value="/robot")
+@RequestMapping(value = "/robot")
 public class RobotControllerService implements RobotController {
 
     @Autowired
@@ -29,7 +25,7 @@ public class RobotControllerService implements RobotController {
     private RotationMapper rotationMapper;
 
     @Override
-    @RequestMapping(value="/position", method= RequestMethod.PUT)
+    @RequestMapping(value = "/position", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public RobotRS move() {
         return robotMapper.robotToRobotRS(robotManager.move());
@@ -37,7 +33,7 @@ public class RobotControllerService implements RobotController {
 
     @Override
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value="/direction", method= RequestMethod.PUT)
+    @RequestMapping(value = "/direction", method = RequestMethod.PUT)
     public RobotRS rotate(@RequestBody RotationRS rotationRS) {
         Rotation rotation = rotationMapper.rotationRSToRotation(rotationRS);
         return robotMapper.robotToRobotRS(robotManager.rotate(rotation));
@@ -46,13 +42,13 @@ public class RobotControllerService implements RobotController {
 
     @Override
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value="/", method= RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public RobotRS report() {
         return robotMapper.robotToRobotRS(robotManager.report());
     }
 
     @Override
-    @RequestMapping(value="/", method= RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public RobotRS place(@RequestBody RobotRS robotRS) {
         Robot robot = robotMapper.robotRStoRobot(robotRS);

@@ -6,10 +6,11 @@ import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
 @Component
-@Mapper(componentModel="spring",uses = {PositionMapper.class,DirectionMapper.class})
+@Mapper(componentModel = "spring", uses = {PositionMapper.class, DirectionMapper.class})
 public interface RobotMapper {
 
-	Robot robotRStoRobot(RobotRS robotRS);
-	RobotRS robotToRobotRS(Robot robot);
+    Robot robotRStoRobot(RobotRS robotRS);
+
+    RobotRS robotToRobotRS(Robot robot);
 
 }

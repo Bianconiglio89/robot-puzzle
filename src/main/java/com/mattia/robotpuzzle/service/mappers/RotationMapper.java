@@ -6,13 +6,13 @@ import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
 @Component
-@Mapper(componentModel="spring",uses = RotationDirectionMapper.class)
+@Mapper(componentModel = "spring", uses = RotationDirectionMapper.class)
 public interface RotationMapper {
 
 
-	Rotation rotationRSToRotation(RotationRS rotationRS);
-	RotationRS rotationRotationRS(Rotation rotation);
+    Rotation rotationRSToRotation(RotationRS rotationRS);
 
+    RotationRS rotationRotationRS(Rotation rotation);
 
 
 }

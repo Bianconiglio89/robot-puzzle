@@ -4,10 +4,11 @@ import com.mattia.robotpuzzle.model.RotationDirection;
 import com.mattia.robotpuzzle.service.entities.RotationDirectionRS;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel="spring")
+@Mapper(componentModel = "spring")
 public interface RotationDirectionMapper {
 
-	RotationDirectionRS rotationToRotationDirectionRS(RotationDirection rotationDirection);
-	RotationDirection rotationDirectionRSToRotationDirection(RotationDirectionRS rotationDirectionRS);
+    RotationDirectionRS rotationToRotationDirectionRS(RotationDirection rotationDirection);
+
+    RotationDirection rotationDirectionRSToRotationDirection(RotationDirectionRS rotationDirectionRS);
 
 }

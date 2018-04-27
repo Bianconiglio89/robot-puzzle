@@ -18,13 +18,13 @@ public class RobotManager implements RobotManagerFacade {
 
     @Override
     public Robot move() {
-        Robot robot= robotRepository.find();
+        Robot robot = robotRepository.find();
         robot.moveFront();
         Robot movedRobot = robotRepository.update(robot);
         return movedRobot;
     }
 
-    public Robot rotate(Rotation rotation){
+    public Robot rotate(Rotation rotation) {
         Robot robot = robotRepository.find();
         robot.rotate(rotation);
         Robot updatedRobot = robotRepository.update(robot);
@@ -34,10 +34,9 @@ public class RobotManager implements RobotManagerFacade {
     @Override
     public Robot report() {
         Robot robot = robotRepository.find();
-        if(robot.getPosition() != null){
+        if (robot.getPosition() != null) {
             return robot;
-        }
-        else {
+        } else {
             throw new RobotMissingException("Robot Not Found");
         }
     }
@@ -45,7 +44,7 @@ public class RobotManager implements RobotManagerFacade {
     @Override
     public Robot place(Robot robot) {
         Robot cachedRobot = robotRepository.find();
-        if(cachedRobot.getPosition() == null) {
+        if (cachedRobot.getPosition() == null) {
             Position position = robot.getPosition();
             Surface surfaceLocation = robot.getSurfaceLocation();
             boolean isPositionInsideSurface = surfaceLocation.isPositionInsideSurface(position.getX(), position.getY());
@@ -55,8 +54,7 @@ public class RobotManager implements RobotManagerFacade {
             } else {
                 throw new InvalidPositionException("Position not valid");
             }
-        }
-        else{
+        } else {
             throw new RobotAlreadyPlacedException("Robot already placed");
         }
 

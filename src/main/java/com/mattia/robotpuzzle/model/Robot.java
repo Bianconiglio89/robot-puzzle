@@ -35,29 +35,31 @@ public class Robot {
         return surfaceLocation;
     }
 
-    public void rotate(Rotation rotation){
+    public void rotate(Rotation rotation) {
         RotationDirection rotateTo = rotation.getRotateTo();
-        switch (rotateTo){
-            case LEFT: rotateLeft();
+        switch (rotateTo) {
+            case LEFT:
+                rotateLeft();
                 break;
-            case RIGHT:rotateRight();
+            case RIGHT:
+                rotateRight();
                 break;
         }
 
 
     }
 
-    private void rotateLeft(){
+    private void rotateLeft() {
         Direction directionAtLeft = surfaceLocation.getDirectionAtLeft(this.direction);
         this.direction = directionAtLeft;
     }
 
-     private void rotateRight() {
+    private void rotateRight() {
         Direction directionAtRight = surfaceLocation.getDirectionAtRight(this.direction);
         this.direction = directionAtRight;
     }
 
-    public void moveFront(){
+    public void moveFront() {
         Position nextPosition = surfaceLocation.nextLegalPosition(this.position, this.direction);
         this.position = nextPosition;
     }
@@ -69,16 +71,13 @@ public class Robot {
 
         Robot robot = (Robot) o;
 
-        if (surfaceLocation != null ? !surfaceLocation.equals(robot.surfaceLocation) : robot.surfaceLocation != null)
-            return false;
         if (position != null ? !position.equals(robot.position) : robot.position != null) return false;
         return direction == robot.direction;
     }
 
     @Override
     public int hashCode() {
-        int result = surfaceLocation != null ? surfaceLocation.hashCode() : 0;
-        result = 31 * result + (position != null ? position.hashCode() : 0);
+        int result = position != null ? position.hashCode() : 0;
         result = 31 * result + (direction != null ? direction.hashCode() : 0);
         return result;
     }

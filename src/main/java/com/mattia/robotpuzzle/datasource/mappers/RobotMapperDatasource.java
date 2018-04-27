@@ -6,8 +6,9 @@ import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
 @Component
-@Mapper(componentModel="spring",uses = {PositionMapperDatasource.class,DirectionMapperDatasource.class})
+@Mapper(componentModel = "spring", uses = {PositionMapperDatasource.class, DirectionMapperDatasource.class})
 public interface RobotMapperDatasource {
-	RobotEntity robotToRobotEntity(Robot robot);
-	Robot robotEntityToRobot(RobotEntity robotEntity);
+    RobotEntity robotToRobotEntity(Robot robot);
+
+    Robot robotEntityToRobot(RobotEntity robotEntity);
 }
