@@ -49,7 +49,7 @@ public class RobotManager implements RobotManagerFacade {
             Surface surfaceLocation = robot.getSurfaceLocation();
             boolean isPositionInsideSurface = surfaceLocation.isPositionInsideSurface(position.getX(), position.getY());
             if (isPositionInsideSurface) {
-                Robot placedRobot = robotRepository.place(robot);
+                Robot placedRobot = robotRepository.create(robot);
                 return placedRobot;
             } else {
                 throw new InvalidPositionException("Position not valid");

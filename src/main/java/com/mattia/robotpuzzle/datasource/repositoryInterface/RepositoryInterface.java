@@ -4,7 +4,7 @@ public interface RepositoryInterface<T> {
 
     public T find();
 
-    public T place(T t);
+    public T create(T t);
 
     public T update(T t);
 }

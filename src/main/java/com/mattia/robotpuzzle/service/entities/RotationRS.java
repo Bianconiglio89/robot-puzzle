@@ -1,6 +1,9 @@
 package com.mattia.robotpuzzle.service.entities;
 
+import javax.validation.constraints.NotNull;
+
 public class RotationRS {
+    @NotNull
     private RotationDirectionRS rotateTo;
 
     public RotationRS() {

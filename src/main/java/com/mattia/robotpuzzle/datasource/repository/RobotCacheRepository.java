@@ -21,7 +21,7 @@ public class RobotCacheRepository implements RepositoryInterface<Robot> {
     }
 
     @Override
-    public Robot place(Robot robot) {
+    public Robot create(Robot robot) {
         RobotEntity robotEntity = robotMapper.robotToRobotEntity(robot);
         this.robotEntity = robotEntity;
         return robotMapper.robotEntityToRobot(this.robotEntity);
@@ -29,6 +29,6 @@ public class RobotCacheRepository implements RepositoryInterface<Robot> {
 
     @Override
     public Robot update(Robot robot) {
-        return place(robot);
+        return create(robot);
     }
 }

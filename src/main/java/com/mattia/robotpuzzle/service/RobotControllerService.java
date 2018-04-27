@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/robot")
 public class RobotControllerService implements RobotController {
@@ -34,7 +36,7 @@ public class RobotControllerService implements RobotController {
     @Override
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/direction", method = RequestMethod.PUT)
-    public RobotRS rotate(@RequestBody RotationRS rotationRS) {
+    public RobotRS rotate(@Valid @RequestBody RotationRS rotationRS) {
         Rotation rotation = rotationMapper.rotationRSToRotation(rotationRS);
         return robotMapper.robotToRobotRS(robotManager.rotate(rotation));
     }
@@ -50,9 +52,9 @@ public class RobotControllerService implements RobotController {
     @Override
     @RequestMapping(value = "/", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public RobotRS place(@RequestBody RobotRS robotRS) {
-        Robot robot = robotMapper.robotRStoRobot(robotRS);
-        return robotMapper.robotToRobotRS(robotManager.place(robot));
+    public RobotRS place(@Valid @RequestBody RobotRS robotRS) {
+            Robot robot = robotMapper.robotRStoRobot(robotRS);
+            return robotMapper.robotToRobotRS(robotManager.place(robot));
     }
 
 }

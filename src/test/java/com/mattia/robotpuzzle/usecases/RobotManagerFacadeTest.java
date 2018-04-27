@@ -69,7 +69,7 @@ public class RobotManagerFacadeTest {
     @Test
     public void placeRobotFirstTimeTest() {
         when(repositoryInterface.find()).thenReturn(new Robot());
-        when(repositoryInterface.place(robot)).thenReturn(robot);
+        when(repositoryInterface.create(robot)).thenReturn(robot);
         assertEquals(robot, robotManager.place(robot));
     }
 

@@ -1,10 +1,11 @@
 package com.mattia.robotpuzzle.service.entities;
 
-import org.springframework.stereotype.Component;
+import javax.validation.constraints.NotNull;
 
-@Component
 public class RobotRS {
+    @NotNull
     PositionRS position;
+    @NotNull
     DirectionRS direction;
 
     public RobotRS() {
