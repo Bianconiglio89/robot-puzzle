@@ -57,4 +57,12 @@ public class RobotControllerService implements RobotController {
             return robotMapper.robotToRobotRS(robotManager.place(robot));
     }
 
+    @Override
+    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.OK)
+    public RobotRS placeOnPosition(@Valid @RequestBody RobotRS robotRS) {
+        Robot robot = robotMapper.robotRStoRobot(robotRS);
+        return robotMapper.robotToRobotRS(robotManager.placeOnOtherPosition(robot));
+    }
+
 }

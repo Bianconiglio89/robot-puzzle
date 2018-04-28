@@ -60,4 +60,8 @@ public class RobotManager implements RobotManagerFacade {
 
 
     }
+
+    public Robot placeOnOtherPosition(Robot robot){
+       return robotRepository.update(robot);
+    }
 }

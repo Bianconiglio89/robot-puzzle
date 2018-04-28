@@ -13,4 +13,6 @@ public interface RobotController {
 
     public RobotRS place(RobotRS robot);
 
+    public RobotRS placeOnPosition(RobotRS robotRS);
+
 }
